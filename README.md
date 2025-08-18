@@ -8,7 +8,7 @@ La App de Seguimiento de Actividades Deportivas es una plataforma web diseñada 
 -  **Integración con Fitbit**: sincronización de calorías y minutos sedentarios.  
 -  **Dashboard Interactivo**: métricas y gráficos dinámicos con **Chart.js**.  
 -  **Seguridad**: autenticación y protección de datos personales.
--   
+  
 ##  Tecnologías utilizadas
 -  **Backend**: .NET 7, C#, Entity Framework Core  
 -  **API**: ASP.NET Core Web API  
