@@ -1,0 +1,42 @@
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" asp-page="/Index">FiTchely</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Dashboard/Index">Dashboard</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="actividadesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Actividades
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="actividadesDropdown">
+                        <li><a class="dropdown-item" asp-page="/Actividades/Index">Lista</a></li>
+                        <li><a class="dropdown-item" asp-page="/Actividades/Crear">Crear</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="progresoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Progreso
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="progresoDropdown">
+                        <li><a class="dropdown-item" asp-page="/Progreso/Index">Lista</a></li>
+                        <li><a class="dropdown-item" asp-page="/Progreso/Registrar">Registrar</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Perfil/Index">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Fitbit/Index">Fitbit</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
