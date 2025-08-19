@@ -1,0 +1,40 @@
+﻿@page
+@model FitbitIndexModel
+@{
+    ViewData["Title"] = "Fitbit";
+}
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Resumen Fitbit</h2>
+
+    @if (!Model.Conectado)
+    {
+        <div class="text-center">
+            <a class="btn btn-success btn-lg" asp-page-handler="Conectar">
+                <i class="bi bi-link-45deg"></i> Conectar Fitbit
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3 text-center">Datos de Hoy</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span><i class="bi bi-fire me-2 text-danger"></i> Calorías Quemadas</span>
+                                <span class="badge bg-danger rounded-pill">@Model.Datos.CaloriasQuemadas</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span><i class="bi bi-clock-history me-2 text-warning"></i> Minutos Sedentarios</span>
+                                <span class="badge bg-warning rounded-pill">@Model.Datos.MinutosSedentarios</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
