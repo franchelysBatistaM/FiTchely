@@ -1,0 +1,56 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="container mt-5">
+    <!-- Hero Section -->
+    <div class="text-center py-5 bg-light rounded shadow-sm">
+        <h1 class="display-5 fw-bold text-primary">
+            <i class="bi bi-heart-pulse me-2"></i> Bienvenido a FiTchely
+        </h1>
+        <p class="lead text-muted mt-3">
+            Donde <strong>cada paso cuenta</strong> y <strong>cada logro importa</strong>.
+        </p>
+        <div class="mt-4">
+            <a href="/Actividades" class="btn btn-success btn-lg me-2">
+                <i class="bi bi-bicycle me-1"></i> Mis Actividades
+            </a>
+            <a href="/Progreso" class="btn btn-primary btn-lg">
+                <i class="bi bi-graph-up-arrow me-1"></i> Mi Progreso
+            </a>
+        </div>
+    </div>
+
+    <!-- Sección de features -->
+    <div class="row text-center mt-5">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-bicycle display-4 text-success"></i>
+                    <h5 class="mt-3 fw-bold">Actividades</h5>
+                    <p class="text-muted">Registra cada entrenamiento y mantén un historial completo de tu rendimiento.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-graph-up-arrow display-4 text-primary"></i>
+                    <h5 class="mt-3 fw-bold">Progreso</h5>
+                    <p class="text-muted">Lleva un seguimiento de tu peso, IMC y grasa corporal con gráficas fáciles de entender.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-person-circle display-4 text-warning"></i>
+                    <h5 class="mt-3 fw-bold">Perfil</h5>
+                    <p class="text-muted">Configura tu información personal para personalizar tu experiencia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
