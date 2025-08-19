@@ -1,0 +1,49 @@
+﻿@page
+@model ProgresoIndexModel
+@{
+    ViewData["Title"] = "Progreso";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0"><i class="bi bi-graph-up-arrow me-2"></i> Mis Progresos</h2>
+        <a class="btn btn-success" asp-page="Registrar">
+            <i class="bi bi-plus-circle me-1"></i> Registrar Progreso
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle shadow-sm">
+            <thead class="table-light">
+                <tr>
+                    <th><i class="bi bi-calendar-date me-1"></i> Fecha</th>
+                    <th><i class="bi bi-speedometer2 me-1"></i> Peso (kg)</th>
+                    <th><i class="bi bi-body-text me-1"></i> IMC</th>
+                    <th><i class="bi bi-heart-pulse me-1"></i> Grasa Corporal (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Progresos.Any())
+                {
+                    foreach (var p in Model.Progresos)
+                    {
+                        <tr>
+                            <td>@p.Fecha.ToString("dd/MM/yyyy")</td>
+                            <td>@p.Peso</td>
+                            <td>@p.IMC</td>
+                            <td>@p.GrasaCorporal</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-center text-muted py-4">
+                            <i class="bi bi-emoji-neutral me-2"></i> Aún no has registrado progresos.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
