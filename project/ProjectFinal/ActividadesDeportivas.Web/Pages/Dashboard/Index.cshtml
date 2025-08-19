@@ -1,0 +1,79 @@
+﻿@page
+@model DashboardIndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2>Resumen Diario</h2>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Actividades Hoy</div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.ActividadesHoy.Count</h5>
+                <p class="card-text">Total de actividades registradas hoy.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header">Pasos Hoy</div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.Fitbit?.Pasos ?? 0</h5>
+                <p class="card-text">Pasos obtenidos desde Fitbit.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-header">Calorías Quemadas</div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.TotalCalorias</h5>
+                <p class="card-text">Calorías sumadas de tus actividades + Fitbit.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">Progreso del Peso</div>
+    <div class="card-body">
+        <canvas id="pesoChart"></canvas>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('pesoChart').getContext('2d');
+        var pesoChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Progresos.Select(p => p.Fecha.ToShortDateString()))),
+                datasets: [{
+                    label: 'Peso (kg)',
+                    data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Progresos.Select(p => p.Peso))),
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    fill: true
+                },
+                {
+                    label: 'IMC',
+                    data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Progresos.Select(p => p.IMC))),
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: false }
+                }
+            }
+        });
+    </script>
+}
