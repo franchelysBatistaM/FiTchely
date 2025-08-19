@@ -1,0 +1,65 @@
+﻿@page "{id:int}"
+@model ActividadesEditarModel
+@{
+    ViewData["Title"] = "Editar Actividad";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">
+                        <i class="bi bi-pencil-square me-2"></i> Editar Actividad
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="Actividad.Nombre" class="form-label fw-bold">Nombre</label>
+                                <input type="text" class="form-control" asp-for="Actividad.Nombre" required />
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Actividad.Tipo" class="form-label fw-bold">Tipo</label>
+                                <select class="form-select" asp-for="Actividad.Tipo" required>
+                                    <option value="">Selecciona...</option>
+                                    <option>Correr</option>
+                                    <option>Bicicleta</option>
+                                    <option>Natación</option>
+                                    <option>Gimnasio</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Actividad.Fecha" class="form-label fw-bold">Fecha</label>
+                                <input type="date" class="form-control" asp-for="Actividad.Fecha" required />
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Actividad.DuracionMinutos" class="form-label fw-bold">Duración (min)</label>
+                                <input type="number" class="form-control" asp-for="Actividad.DuracionMinutos" required />
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Actividad.CaloriasQuemadas" class="form-label fw-bold">Calorías Quemadas</label>
+                                <input type="number" class="form-control" asp-for="Actividad.CaloriasQuemadas" required />
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Actividad.Notas" class="form-label fw-bold">Notas</label>
+                                <textarea class="form-control" asp-for="Actividad.Notas" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <a class="btn btn-outline-secondary" asp-page="Index">
+                                <i class="bi bi-x-circle me-1"></i> Cancelar
+                            </a>
+                            <button class="btn btn-primary px-4" type="submit">
+                                <i class="bi bi-save me-1"></i> Actualizar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
