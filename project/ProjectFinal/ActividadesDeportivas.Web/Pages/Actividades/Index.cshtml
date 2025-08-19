@@ -1,0 +1,65 @@
+﻿@page
+@model ActividadesIndexModel
+@{
+    ViewData["Title"] = "Actividades";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0"><i class="bi bi-list-task me-2"></i> Mis Actividades</h2>
+        <a class="btn btn-success" asp-page="Crear">
+            <i class="bi bi-plus-circle me-1"></i> Nueva Actividad
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle shadow-sm">
+            <thead class="table-light">
+                <tr>
+                    <th><i class="bi bi-tag me-1"></i> Nombre</th>
+                    <th><i class="bi bi-bicycle me-1"></i> Tipo</th>
+                    <th><i class="bi bi-calendar-date me-1"></i> Fecha</th>
+                    <th><i class="bi bi-clock me-1"></i> Duración</th>
+                    <th><i class="bi bi-fire me-1"></i> Calorías</th>
+                    <th class="text-center"><i class="bi bi-gear me-1"></i> Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Actividades.Any())
+                {
+                    foreach (var actividad in Model.Actividades)
+                    {
+                        <tr>
+                            <td>@actividad.Nombre</td>
+                            <td>@actividad.Tipo</td>
+                            <td>@actividad.Fecha.ToString("dd/MM/yyyy")</td>
+                            <td>@actividad.DuracionMinutos min</td>
+                            <td>@actividad.CaloriasQuemadas kcal</td>
+                            <td class="text-center">
+                                <a class="btn btn-sm btn-outline-primary me-1"
+                                   asp-page="Editar" asp-route-id="@actividad.Id">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <form method="post" asp-page-handler="Eliminar"
+                                      asp-route-id="@actividad.Id" class="d-inline">
+                                    <button class="btn btn-sm btn-outline-danger" type="submit"
+                                            onclick="return confirm('¿Seguro que quieres eliminar esta actividad?');">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-4">
+                            <i class="bi bi-emoji-frown me-2"></i> No tienes actividades registradas aún.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
