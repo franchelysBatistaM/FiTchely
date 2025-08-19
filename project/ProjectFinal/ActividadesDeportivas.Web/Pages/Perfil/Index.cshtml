@@ -1,0 +1,49 @@
+﻿@page
+@model PerfilIndexModel
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0"><i class="bi bi-person-circle me-2"></i> Mi Perfil</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="Usuario.Nombre" class="form-label fw-bold">Nombre</label>
+                                <input type="text" class="form-control" asp-for="Usuario.Nombre" placeholder="Ej: Fran">
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Usuario.Apellido" class="form-label fw-bold">Apellido</label>
+                                <input type="text" class="form-control" asp-for="Usuario.Apellido" placeholder="Ej: Lopez">
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="Usuario.Edad" class="form-label fw-bold">Edad</label>
+                                <input type="number" class="form-control" asp-for="Usuario.Edad">
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="Usuario.Peso" class="form-label fw-bold">Peso (kg)</label>
+                                <input type="number" class="form-control" asp-for="Usuario.Peso" step="0.1">
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="Usuario.Altura" class="form-label fw-bold">Altura (cm)</label>
+                                <input type="number" class="form-control" asp-for="Usuario.Altura" step="0.1">
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn btn-success px-4" type="submit">
+                                <i class="bi bi-check-circle me-1"></i> Actualizar Perfil
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
